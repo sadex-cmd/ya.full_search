@@ -21,8 +21,8 @@ response = requests.get(geocoder_api_server, params=geocoder_params)
 
 if not response:
     print("Ошибка выполнения запроса:")
-        print(geocoder_request)
-        print("Http статус:", response.status_code, "(", response.reason, ")")
+    print(geocoder_request)
+    print("Http статус:", response.status_code, "(", response.reason, ")")
 
 # Преобразуем ответ в json-объект
 json_response = response.json()
@@ -55,7 +55,7 @@ map_params = {
     "ll": ",".join([toponym_longitude, toponym_lattitude]),
     "spn": span,
     "apikey": apikey,
-
+    "pt": f'{",".join([toponym_longitude, toponym_lattitude, "pmntl99"])}',
 }
 
 map_api_server = "https://static-maps.yandex.ru/v1"
